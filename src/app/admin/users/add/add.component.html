@@ -1,0 +1,26 @@
+<form [formGroup]="addForm" (ngSubmit)="Add()">
+    <!-- <mat-form-field >
+        <mat-label>Name</mat-label>
+        <input matInput name="Name" formControlName="Name">
+    </mat-form-field> -->
+     
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" formControlName="Name" >
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+      <mat-label>Email</mat-label>
+      <input matInput name="name" formControlName="Email" >
+  </mat-form-field>
+  <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+    <mat-label>Password</mat-label>
+    <input matInput name="name" formControlName="Password" >
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Cars</mat-label>
+    <select formControlName="roleId" matNativeControl required>
+      <option *ngFor="let role of Roles" [value]="role.id">{{role.roleName}}</option>
+    </select>
+  </mat-form-field>
+    <button mat-raised-button type="submit" mat-raised-button color="primary">Add</button>       
+  </form>
