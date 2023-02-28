@@ -1,4 +1,4 @@
 export class RolesModel{
-    Id:number|undefined
-    RoleName:string|undefined
+    id:number|undefined
+    roleName:string|undefined
 }

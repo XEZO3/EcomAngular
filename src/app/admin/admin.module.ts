@@ -11,16 +11,40 @@ import {MatButtonModule} from '@angular/material/button';
 import { IndexComponent } from './index.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { SidenavComponent } from './sidenav/sidenav.component';
+
 import { AddComponent } from './users/add/add.component';
 import { EditComponent } from './users/edit/edit.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import { ShowRoleComponent } from './Roles/show/show.component';
+import { AddRoleComponent } from './Roles/add/add.component';
+import { AddPermessionComponent } from './Permessions/add-permession/add-permession.component';
+import { RoleDetailsComponent } from './Roles/role-details/role-details.component';
+import { SerRolePermessionComponent } from './Roles/ser-role-permession/ser-role-permession.component';
+import { AddCategoryComponent } from './Category/add-category/add-category.component';
+import { ShowCategoryComponent } from './Category/show-category/show-category.component';
+import { DetailsCategoryComponent } from './Category/details-category/details-category.component';
+import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 @NgModule({
   declarations: [
     ShowUsersComponent,
     IndexComponent,
-    SidenavComponent,
+    AddRoleComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    ShowRoleComponent,
+    AddPermessionComponent,
+    RoleDetailsComponent,
+    SerRolePermessionComponent,
+    AddCategoryComponent,
+    ShowCategoryComponent,
+    DetailsCategoryComponent,
+    UpdateCategoryComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -32,6 +56,10 @@ import { EditComponent } from './users/edit/edit.component';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatRadioModule,
     // BrowserModule,
     // AppRoutingModule,
   ]

@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="update()">
     <!-- <mat-form-field >
         <mat-label>Name</mat-label>
         <input matInput name="Name" formControlName="Name">
@@ -6,19 +6,19 @@
      
     <mat-form-field style="margin-left: 10px;margin-right: 10px;">
         <mat-label>Name</mat-label>
-        <input matInput name="name" formControlName="Name" >
+        <input matInput name="name" formControlName="Name" value="{{users.Name}}" >
     </mat-form-field>
     <mat-form-field style="margin-left: 10px;margin-right: 10px;">
       <mat-label>Email</mat-label>
-      <input matInput name="name" formControlName="Email" >
+      <input matInput name="name" formControlName="Email" value="{{users.Email}}" >
   </mat-form-field>
   <mat-form-field style="margin-left: 10px;margin-right: 10px;">
     <mat-label>Password</mat-label>
     <input matInput name="name" formControlName="Password" >
 </mat-form-field>
 <mat-form-field appearance="fill">
-    <mat-label>Cars</mat-label>
-    <select formControlName="roleId" matNativeControl required>
+    <mat-label >{{currentRole}}</mat-label>
+    <select formControlName="roleId" matNativeControl required value="{{users.roleId}}">
       <option *ngFor="let role of Roles" [value]="role.id">{{role.roleName}}</option>
     </select>
   </mat-form-field>

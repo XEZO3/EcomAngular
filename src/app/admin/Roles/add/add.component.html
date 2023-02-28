@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="Add()">
+    <!-- <mat-form-field >
+        <mat-label>Name</mat-label>
+        <input matInput name="Name" formControlName="Name">
+    </mat-form-field> -->
+     
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" formControlName="RoleName" >
+    </mat-form-field>
+    
+ 
+
+    <button mat-raised-button type="submit" mat-raised-button color="primary">Add</button>       
+  </form>

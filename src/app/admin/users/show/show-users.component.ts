@@ -39,4 +39,10 @@ getData(userfilter:userFilter){
     this.dataSource = respone.result
   })
 }
+deleteuser(id:number){
+  this.Users.Delete(id).subscribe(respone=>{
+    this.getData(this.userfilter)
+  })
+  
+}
 }

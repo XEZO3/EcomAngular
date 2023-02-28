@@ -1,6 +1,61 @@
+<mat-toolbar>
 
-<app-sidenav></app-sidenav>
+    <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+    </mat-toolbar>
 
+<mat-drawer-container class="example-container" style="height: 100%;width:200px;float: left;">
+    
+    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 200px;">
+        <button style="float: right;" type="button" color="red" mat-button (click)="drawer.toggle()" >
+           X
+          </button>
+          <h3 style="margin: 3px;">Admin DashBoard</h3>
+          <br>
+      <div class="container">
+        <button mat-button class="menu-button">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <br>
+        <button (click)="showUserMenu=!showUserMenu" mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Users</span>
+        </button>
+        <div *ngIf="showUserMenu" style="margin-top: -15px;margin-bottom: -15px;">
+        <br>
+        <a mat-button [routerLink]="['users/add']">Add.</a>
+        <br>
+        <a mat-button [routerLink]="['users/show']">Show</a>
+        </div>
+        <br>
+        <a [routerLink]="['Roles/show']" mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Roles</span>
+        </a>
+        <br>
+        <!-- <div *ngIf="showRoleMenu" style="margin-top: -15px;margin-bottom: -12px;">
+            <br>
+            <a mat-button [routerLink]="['users/add']">Add.</a>
+            <br>
+            <a mat-button [routerLink]="['users/show']">Show</a>
+        </div> -->
+        
+        <a  mat-button class="menu-button">
+            <mat-icon>lock</mat-icon>
+            <span>Permessions</span>
+        </a>
+        <br>
+        
 
+        <mat-divider></mat-divider>
 
-<router-outlet></router-outlet>
+        
+      </div>
+      
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { userModel } from './Models/user';
 import { userFilter } from './filters/userFilter';
 import { registerDto } from './Dto/registerDto';
+import { updateUserDto } from './Dto/UpdateUserDto';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,11 +24,23 @@ export class UserServiceService {
       roleId: addForm.roleId
     })
   }
-  update(update:registerDto){
-
+  update(update:updateUserDto){
+    let url = this.baseUrl +"Update"
+    return this.http.put(url,{
+      id:update.id,
+      name: update.Name,
+      email: update.Email,
+      password: update.password,
+      roleId: update.roleId
+    })
   }
   GetById(Id:number){
     let url = this.baseUrl +"GetById/"+Id
     return this.http.get<any>(url)
+  }
+  Delete(Id:number){
+    let url = this.baseUrl +"Delete/"+Id
+    return this.http.delete(url)
+    
   }
 }
