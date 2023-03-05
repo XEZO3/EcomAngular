@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { RolesModel } from 'src/app/shared/Services/Models/Roles';
 import { RoleService } from 'src/app/shared/Services/role.service';
 
@@ -17,14 +18,15 @@ export class ShowRoleComponent implements OnInit{
     RoleName:'',
     
   })
-  constructor(private fb:FormBuilder,private role:RoleService){}
+  constructor(private fb:FormBuilder,private role:RoleService,private route:Router){}
   ngOnInit(): void {
     this.getData()
   }
   getData(rolename:string=''){
     this.role.GetAll(rolename).subscribe(respone=>{
       console.log(respone)
-      this.dataSource = respone.result
+      var test = respone.result.sort((a:RolesModel=new RolesModel, b:RolesModel=new RolesModel) => ((a.id as number) < (b.id as number) ? -1 : 1))
+      this.dataSource = test
     })
   }
   filter(){

@@ -11,6 +11,9 @@ import { AddPermessionComponent } from './Permessions/add-permession/add-permess
 import { RoleDetailsComponent } from './Roles/role-details/role-details.component';
 import { SerRolePermessionComponent } from './Roles/ser-role-permession/ser-role-permession.component';
 import { ShowCategoryComponent } from './Category/show-category/show-category.component';
+import { AddCategoryComponent } from './Category/add-category/add-category.component';
+import { DetailsCategoryComponent } from './Category/details-category/details-category.component';
+import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
 
 
 
@@ -49,6 +52,16 @@ const routes: Routes = [
       //Category
       {
         path:"Category/show",component:ShowCategoryComponent
+      },
+      {
+        path:"Category/add",component:AddCategoryComponent
+      },
+      {
+        path:"Category/details/:id",component:DetailsCategoryComponent
+      },
+      //Brands
+      {
+        path:"Brand/show",component:BrandShowComponent
       },
 
       

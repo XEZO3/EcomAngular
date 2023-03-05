@@ -20,7 +20,9 @@ this.role=new RolesModel
  Add(){
   this.role.roleName= this.form.value.RoleName as string
   this.Roles.Add(this.role).subscribe(respone=>{
-
+    this.form.patchValue({
+      RoleName:''
+    })
   })
  }
 }

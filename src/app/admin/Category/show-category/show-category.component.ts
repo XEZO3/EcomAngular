@@ -27,11 +27,17 @@ export class ShowCategoryComponent implements OnInit {
     
     this.category.GetAll(filter).subscribe(respone=>{
       this.dataSource = respone.result
+      
     })
   }
   filter(){
     this.categoryFilter.Name = this.filterForm.value.Name as string
     this.categoryFilter.IsAvilable = this.filterForm.value.IsAvilable as string
     this.GetData(this.categoryFilter)
+  }
+  DeleteCategory(id:number){
+this.category.Delete(id).subscribe(respone=>{
+  this.GetData(this.categoryFilter)
+})
   }
 }

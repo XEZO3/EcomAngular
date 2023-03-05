@@ -1,1 +1,37 @@
-<p>details-category works!</p>
+<form [formGroup]="form" (ngSubmit)="Update()">
+    <!-- <mat-form-field >
+        <mat-label>Name</mat-label>
+        <input matInput name="Name" formControlName="Name">
+    </mat-form-field> -->
+     
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>NameAr</mat-label>
+        <input matInput  formControlName="NameAr" >
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>NameEn</mat-label>
+        <input matInput  formControlName="NameEn" >
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>DescriptionAr</mat-label>
+        <input matInput  formControlName="DescriptionAr" >
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>DescriptionEn</mat-label>
+        <input matInput  formControlName="DescriptionEn" >
+    </mat-form-field>
+    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
+        <mat-label>Image</mat-label>
+        <input matInput  formControlName="Image" >
+    </mat-form-field>
+    <mat-radio-group formControlName="IsAvilable" aria-label="Select an option">
+        <mat-label>IsAvilable:</mat-label>
+        <mat-radio-button value="{{true}}">Yes</mat-radio-button>
+        <mat-radio-button value="{{false}}">No</mat-radio-button>
+      </mat-radio-group>
+    
+ 
+
+    <button mat-raised-button type="submit" mat-raised-button color="primary">Add</button>       
+  </form>
+  <a [routerLink]="['../../show']" mat-raised-button color="primary" >Back to list</a>

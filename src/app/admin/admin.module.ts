@@ -25,8 +25,8 @@ import { SerRolePermessionComponent } from './Roles/ser-role-permession/ser-role
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { ShowCategoryComponent } from './Category/show-category/show-category.component';
 import { DetailsCategoryComponent } from './Category/details-category/details-category.component';
-import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
 
 
 @NgModule({
@@ -43,7 +43,7 @@ import {MatRadioModule} from '@angular/material/radio';
     AddCategoryComponent,
     ShowCategoryComponent,
     DetailsCategoryComponent,
-    UpdateCategoryComponent,
+    BrandShowComponent,
     
   ],
   imports: [
