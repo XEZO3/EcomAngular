@@ -1,0 +1,70 @@
+<section class="padding-y bg-light">
+    <div class="container">
+      <!-- =================== COMPONENT 1 ====================== -->
+      <div class="card bg-primary p-5" style="min-height:280px; background-size: cover; background-image: url('assets/images/banners/bg-food.webp');">
+      <header class="text-center mt-5">
+        <h2 class="text-white">Order online now</h2>
+        <p class="text-white">Discover the best Products in your area</p>
+      </header>
+      </div>
+      <!-- =================== COMPONENT 1 .// ================== -->
+      <br>
+      <br>
+      <!-- =================== COMPONENT 2 ====================== -->
+      <div class="card">
+      <div class="content-body">
+        <nav class="row gy-4">
+        <div *ngFor="let item of category" class="col-xl col-lg-2 col-md-3 col-4">
+          <a href="#" class="item-link text-center">
+          <span class="icon icon-lg mb-2 rounded-3">
+            <img width="42" height="42" src="{{item.image}}">
+          </span>
+          <span class="text"> {{item.name}} </span>
+          </a>
+        </div>
+      
+        </nav>
+      </div>
+      <!-- card-body.// -->
+      </div>
+      <!-- card.// -->
+      <!-- =================== COMPONENT 2 .// ================== -->
+      <br>
+      <br>
+      <!-- =================== COMPONENT 3 ====================== -->
+      <div class="row">
+      <div *ngFor="let item of products" class="col-lg-4 col-md-6">
+        <article class="card card-product-grid">
+        <a href="#">
+          <img src="{{item.image}}" height="200" class="card-img-top" alt="product image">
+        </a>
+        <div class="card-body pt-0">
+          <div class="float-end mt-n5">
+          <!-- <img class="img-sm rounded-3 obj-contain border" src="assets/images/brands/cafe-logo1.webp" width="72" height="72"> -->
+          </div>
+          <div class="pt-3 pe-5">
+          <h6 class="card-title mb-0">
+            <a href="#">{{item.name}}</a>
+          </h6>
+          <p class="mb-1 text-muted">{{item.brands.name}},{{item.category.name}}</p>
+          
+          
+          </div>
+        </div>
+        <!-- card-body.// -->
+        </article>
+      </div>
+      <!-- col.// -->
+      
+    
+      </div>
+      <!-- row.// -->
+      <!-- =================== COMPONENT 3 .// ================== -->
+      <br>
+      <br>
+      
+     
+      <!-- p-4 .// -->
+    </div>
+    <!-- container .// -->
+    </section>

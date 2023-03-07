@@ -1,13 +1,18 @@
-export class categoryModel{
+export class ProductsModel{
     Id:number
     NameAr:string
     NameEn:string
     DescriptionAr:string
     DescriptionEn:string
+    ProductStateId:number
+    Price:number
+    Tax:number
+    CategoryId:number
+    BrandsId:number
     name:string
     Description:string
     Image:string
-    isAvailable:boolean
+    Avilability:string
 
     constructor(){
         
@@ -18,7 +23,12 @@ export class categoryModel{
         this.DescriptionEn=''
         this.name=''
         this.Description=''
+        this.Price=0
+        this.Tax=0
+        this.BrandsId=0
+        this.CategoryId=0
+        this.ProductStateId=0
         this.Image=''
-        this.isAvailable=true
+        this.Avilability=''
     }
 }

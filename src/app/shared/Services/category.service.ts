@@ -10,8 +10,8 @@ import { categoryModel } from './Models/Category';
 export class CategoryService {
   baseUrl = "https://localhost:7247/api/Category/"
   constructor(private http:HttpClient) { }
-  GetAll(filter:categoryFilter){
-var url = this.baseUrl+"GetAll?Name="+filter.Name+"&IsAvailable="+filter.IsAvilable+"&Description="+filter.Description
+  GetAll(filter:categoryFilter=new categoryFilter){
+var url = this.baseUrl+"GetAll?Name="+filter?.Name+"&IsAvailable="+filter?.IsAvilable+"&Description="+filter?.Description
 return this.http.get<any>(url);
   }
 Add(category:CategoryDto){
@@ -19,7 +19,7 @@ let url = this.baseUrl+"Add"
 return this.http.post<any>(url,{
   
     nameAr: category.NameAr,
-    nameEn: category.NameAr,
+    nameEn:category.NameEn,
     descriptionAr: category.DescriptionAr,
     descriptionEn: category.DescriptionEn,
     image: category.Image,
@@ -36,7 +36,7 @@ Update(category:categoryModel){
   return this.http.put<any>(url,{
     id:category.Id,
     nameAr: category.NameAr,
-    nameEn: category.NameAr,
+    nameEn: category.NameEn,
     descriptionAr: category.DescriptionAr,
     descriptionEn: category.DescriptionEn,
     image: category.Image,

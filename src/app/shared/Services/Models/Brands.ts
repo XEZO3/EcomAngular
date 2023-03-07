@@ -2,7 +2,7 @@ export class BrandModel{
     Id:number
     NameAr:string
     NameEn:string  
-    Name:string
+    name:string
     Image:string
     isAvailable:boolean
 
@@ -10,7 +10,7 @@ export class BrandModel{
         this.Id=0;
         this.NameAr=''
         this.NameEn=''
-        this.Name=''
+        this.name=''
         this.Image=''
         this.isAvailable=true
     }

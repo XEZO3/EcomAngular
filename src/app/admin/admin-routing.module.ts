@@ -14,6 +14,11 @@ import { ShowCategoryComponent } from './Category/show-category/show-category.co
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { DetailsCategoryComponent } from './Category/details-category/details-category.component';
 import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
+import { BrandAddComponent } from './Brand/brand-add/brand-add.component';
+import { BrandDetailsComponent } from './Brand/brand-details/brand-details.component';
+import { ProductShowComponent } from './Products/product-show/product-show.component';
+import { ProductDetailsComponent } from './Products/product-details/product-details.component';
+import { ProductAddComponent } from './Products/product-add/product-add.component';
 
 
 
@@ -62,6 +67,22 @@ const routes: Routes = [
       //Brands
       {
         path:"Brand/show",component:BrandShowComponent
+      },
+      {
+        path:"Brand/add",component:BrandAddComponent
+      },
+      {
+        path:"Brand/details/:id",component:BrandDetailsComponent
+      },
+      //
+      {
+        path:"Product/show",component:ProductShowComponent
+      },
+      {
+        path:"Product/add",component:ProductAddComponent
+      },
+      {
+        path:"Product/details/:id",component:ProductDetailsComponent
       },
 
       

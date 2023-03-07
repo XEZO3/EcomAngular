@@ -34,19 +34,22 @@
             <mat-icon>person</mat-icon>
             <span>Roles</span>
         </a>
-        <br>
-        <!-- <div *ngIf="showRoleMenu" style="margin-top: -15px;margin-bottom: -12px;">
-            <br>
-            <a mat-button [routerLink]="['users/add']">Add.</a>
-            <br>
-            <a mat-button [routerLink]="['users/show']">Show</a>
-        </div> -->
-        
-        <a  mat-button class="menu-button">
+        <br>        
+        <a [routerLink]="['Permessions/add']"  mat-button class="menu-button">
             <mat-icon>lock</mat-icon>
             <span>Permessions</span>
         </a>
         <br>
+        <a [routerLink]="['Category/show']" mat-button class="menu-button">
+          <mat-icon>category</mat-icon>
+          <span>Category</span>
+      </a>
+      <a [routerLink]="['Brand/show']" mat-button class="menu-button">
+        <mat-icon>branding_watermark</mat-icon>
+        <span>Brands</span>
+    </a>
+      <br>
+
         
 
         <mat-divider></mat-divider>

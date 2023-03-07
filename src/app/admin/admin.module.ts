@@ -27,6 +27,12 @@ import { ShowCategoryComponent } from './Category/show-category/show-category.co
 import { DetailsCategoryComponent } from './Category/details-category/details-category.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
+import { BrandAddComponent } from './Brand/brand-add/brand-add.component';
+import { BrandDetailsComponent } from './Brand/brand-details/brand-details.component';
+import { ProductShowComponent } from './Products/product-show/product-show.component';
+import { ProductDetailsComponent } from './Products/product-details/product-details.component';
+import { ProductAddComponent } from './Products/product-add/product-add.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -44,6 +50,12 @@ import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
     ShowCategoryComponent,
     DetailsCategoryComponent,
     BrandShowComponent,
+    BrandAddComponent,
+    BrandDetailsComponent,
+    ProductShowComponent,
+    ProductDetailsComponent,
+    ProductAddComponent,
+    
     
   ],
   imports: [
@@ -60,6 +72,7 @@ import { BrandShowComponent } from './Brand/brand-show/brand-show.component';
     MatSidenavModule,
     MatDividerModule,
     MatRadioModule,
+    MatSelectModule
     // BrowserModule,
     // AppRoutingModule,
   ]
