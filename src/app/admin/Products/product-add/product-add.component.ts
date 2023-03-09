@@ -15,7 +15,7 @@ import { ProductsService } from 'src/app/shared/Services/products.service';
 export class ProductAddComponent {
 
 
-
+file:any
   Category:any
   Brands:any
   currentBrand:string=''
@@ -29,7 +29,7 @@ export class ProductAddComponent {
     Tax:0,
     CategoryId:0,
     BrandsId:0,
-    Image:'',
+    
     Avilability:''
   })
   Product:ProductDto= new ProductDto
@@ -40,6 +40,11 @@ export class ProductAddComponent {
     this.GetBrands()
 
   }
+  selecter(e:any){
+
+    this.file =e.target.files[0]
+  
+  }
 Add(){
   this.Product.NameAr = this.form.value.NameAr as string
   this.Product.NameEn = this.form.value.NameEn as string
@@ -49,9 +54,9 @@ Add(){
   this.Product.Price = this.form.value.Price as number
   this.Product.CategoryId = this.form.value.CategoryId as number
   this.Product.BrandsId = this.form.value.BrandsId as number
-  this.Product.Image = this.form.value.Image as string
+ // this.Product.Image = this.form.value.Image as string
   this.Product.Avilability = this.form.value.Avilability as string
-  this.product.Add(this.Product).subscribe(respone=>{
+  this.product.Add(this.Product,this.file).subscribe(respone=>{
     this.form.patchValue({
       NameAr:'',
       NameEn:'',
@@ -61,7 +66,7 @@ Add(){
      BrandsId : 0,
       DescriptionAr:'',
       DescriptionEn:'',
-      Image:'',
+      
       Avilability:''
   
     })

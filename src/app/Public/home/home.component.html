@@ -33,27 +33,33 @@
       <br>
       <!-- =================== COMPONENT 3 ====================== -->
       <div class="row">
-      <div *ngFor="let item of products" class="col-lg-4 col-md-6">
-        <article class="card card-product-grid">
-        <a href="#">
-          <img src="{{item.image}}" height="200" class="card-img-top" alt="product image">
-        </a>
-        <div class="card-body pt-0">
-          <div class="float-end mt-n5">
-          <!-- <img class="img-sm rounded-3 obj-contain border" src="assets/images/brands/cafe-logo1.webp" width="72" height="72"> -->
-          </div>
-          <div class="pt-3 pe-5">
-          <h6 class="card-title mb-0">
-            <a href="#">{{item.name}}</a>
-          </h6>
-          <p class="mb-1 text-muted">{{item.brands.name}},{{item.category.name}}</p>
+        <div *ngFor="let item of products" class="col-lg-4 col-md-6 col-sm-6">
           
-          
+          <figure class="card card-product-grid">
+            <a [routerLink]="['Products/',item.id]">
+          <div class="img-wrap"> 
+            <img src="{{item.image}}"> 
           </div>
+          </a>
+          <figcaption class="info-wrap border-top">
+            <div class="price-wrap">
+            <strong class="price">${{item.price}}</strong>
+            </div> <!-- price-wrap.// -->
+            <p class="title mb-2">{{item.name}}</p>
+            <form [formGroup]="form" (ngSubmit)="AddToCart(item.id)">
+            <div class="input-group input-spinner">
+              
+             
+              <input  type="number" min="1"  class="form-control text-center"  formControlName="quantity">
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+          </form>
+            
+          </figcaption>
+          </figure>
+        
         </div>
-        <!-- card-body.// -->
-        </article>
-      </div>
       <!-- col.// -->
       
     

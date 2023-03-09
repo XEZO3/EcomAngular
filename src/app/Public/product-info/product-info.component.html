@@ -1,0 +1,106 @@
+
+
+    <!-- ============== SECTION PAGETOP END// ============== -->
+    
+    <!-- ============== SECTION CONTENT ============== -->
+    <section class="padding-y">
+    <div class="container">
+    
+    <div class="row">
+    <aside class="col-lg-6">
+      <article class="gallery-wrap"> 
+      <div class="img-big-wrap img-thumbnail">
+         <a data-fslightbox="mygalley" data-type="image" href="assets/images/items/10.webp"> 
+          <img height="560" src="assets/images/items/10.webp"> 
+         </a>
+      </div> <!-- img-big-wrap.// -->
+      
+      </article> <!-- gallery-wrap .end// -->
+    </aside>
+    <main class="col-lg-6">
+      <article class="ps-lg-3">
+      <h4 class="title text-dark"></h4>
+      <div class="rating-wrap my-3">
+        <ul class="rating-stars">
+        <li style="width:80%" class="stars-active"> <img src="assets/images/misc/stars-active.svg" alt=""> </li>
+        <li> <img src="assets/images/misc/starts-disable.svg" alt=""> </li>
+        </ul>
+       
+        <i class="dot"></i>
+        <span style="color:gray" class="label-rating">{{product.avilability}}</span>
+      </div> <!-- rating-wrap.// -->
+    
+      <div class="mb-3"> 
+        <var class="price h5">${{product.price}}</var> 
+        <span class="text-muted">/per item</span> 
+      </div> 
+    
+      <p>{{product.description}}</p>
+    
+      <dl class="row">
+        <dt class="col-3">Brand:</dt>
+        <dd class="col-9">{{product.brands.name}}</dd>
+    
+        <dt class="col-3">Category:</dt>
+        <dd class="col-9">{{product.category.name}}</dd>
+    
+        
+      </dl>
+    
+      <hr>
+      <form (ngSubmit)="AddToCart()">
+      <div class="row mb-4">
+       
+        <div class="col-md-4 col-6 mb-3">
+        <label class="form-label d-block">Quantity</label>
+        <div class="input-group input-spinner">
+          <button class="btn btn-icon btn-light" (click)="quintity>1?quintity=quintity-1:quintity=1" type="button"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
+            <path d="M19 13H5v-2h14v2z"></path>
+            </svg>
+          </button>
+         
+          <input type="number" min="1"  class="form-control text-center" placeholder="" value="{{quintity}}">
+          <button (click)="quintity=quintity+1" class="btn btn-icon btn-light" type="button"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+            </svg>
+          </button>
+        </div> <!-- input-group.// -->
+        </div> <!-- col.// -->
+   
+      </div> <!-- row.// -->
+    
+      
+      <button type="submit"  class="btn  btn-primary"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </button>
+     
+    </form>
+      </article> <!-- product-info-aside .// -->
+    </main> <!-- col.// -->
+    </div> <!-- row.// -->
+    
+    </div> <!-- container .//  -->
+    </section>
+    <!-- ============== SECTION CONTENT END// ============== -->
+    
+    <!-- ============== SECTION  ============== -->
+    <section class="padding-y bg-light border-top">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+    <!-- =================== COMPONENT SPECS ====================== -->
+    
+    <!-- =================== COMPONENT SPECS .// ================== -->   
+      </div> <!-- col.// -->
+      <aside class="col-lg-4">
+    <!-- =================== COMPONENT ADDINGS ====================== -->
+     
+    <!-- =================== COMPONENT ADDINGS .// ================== --> 
+      </aside> <!-- col.// -->
+    </div>
+    
+    <br><br>
+    
+    </div><!-- container // -->
+    </section>
+    <!-- =============== SECTION  END// ============== -->

@@ -1,0 +1,179 @@
+    <section class="padding-y">
+    <div class="container">
+    
+    <div class="row">
+      <aside class="col-lg-3">
+    
+    <button class="btn btn-outline-secondary mb-3 w-100  d-lg-none" data-bs-toggle="collapse" data-bs-target="#aside_filter">Show filter</button>
+    
+    <!-- ===== Card for sidebar filter ===== -->
+    <div id="aside_filter" class="collapse card d-lg-block mb-5">
+        <form [formGroup]="filterform" (ngSubmit)="filter()">
+      <article class="filter-group">
+      <header class="card-header">
+        <a href="#" class="title" data-bs-toggle="collapse" data-bs-target="#collapse_aside_brands">
+        <i class="icon-control fa fa-chevron-down"></i>  Brands 
+        </a>
+      </header>
+      <div class="collapse show" id="collapse_aside_brands">
+        <div class="card-body">
+          
+          <div *ngFor="let item of brands" class="card-body">
+            <label class="form-check ">
+            <input class="form-check-input" type="checkbox" formArrayName="BrandsId" [value]="item.id" (change)="onCheckboxChange($event,1)"  >
+            <span class="form-check-label"> {{item.name}} </span>
+           
+            </label> <!-- form-check end.// -->
+            
+          </div> <!-- card-body .// -->
+          
+    
+    
+        
+    
+         
+    
+        </div> <!-- card-body .// -->
+      </div> <!-- collapse.// -->
+      </article>
+      <article class="filter-group">
+        <header class="card-header">
+          <a href="#" class="title" data-bs-toggle="collapse" data-bs-target="#collapse_aside_category">
+          <i class="icon-control fa fa-chevron-down"></i>  Category 
+          </a>
+        </header>
+        <div class="collapse show" id="collapse_aside_category">
+          <div class="card-body">
+            
+            <div *ngFor="let item of category" class="card-body">
+              <label class="form-check ">
+              <input class="form-check-input" type="checkbox" formArrayName="CategoryId" [value]="item.id" (change)="onCheckboxChange($event,2)"  >
+              <span class="form-check-label"> {{item.name}} </span>
+             
+              </label> <!-- form-check end.// -->
+              
+            </div> <!-- card-body .// -->
+          </div> <!-- card-body .// -->
+        </div> <!-- collapse.// -->
+        </article>
+        <article class="filter-group">
+            <header class="card-header">
+              <a href="#" class="title" data-bs-toggle="collapse" data-bs-target="#collapse_aside_Availability">
+              <i class="icon-control fa fa-chevron-down"></i>  Availability 
+              </a>
+            </header>
+            <div class="collapse show" id="collapse_aside_Availability">
+              <div class="card-body">
+                
+                <div  class="card-body">
+                  <label class="form-check ">
+                  <input class="form-check-input" type="checkbox" formArrayName="CategoryId" value="out of stock" (change)="onCheckboxChange($event,3)"  >
+                  <span class="form-check-label">out of stock </span>
+                 
+                  </label> <!-- form-check end.// -->
+                  
+                </div> <!-- card-body .// -->
+
+                <div  class="card-body">
+                    <label class="form-check ">
+                    <input class="form-check-input" type="checkbox" formArrayName="CategoryId" value="in stock" (change)="onCheckboxChange($event,3)"  >
+                    <span class="form-check-label">in stock</span>
+                   
+                    </label> <!-- form-check end.// -->
+                    
+                  </div> <!-- card-body .// -->
+              </div> <!-- card-body .// -->
+            </div> <!-- collapse.// -->
+            </article>
+    
+      <article class="filter-group">
+      <header class="card-header">
+        <a href="#" class="title" data-bs-toggle="collapse" data-bs-target="#collapse_aside2">
+        <i class="icon-control fa fa-chevron-down"></i>  Price 
+        </a>
+      </header>
+      <div class="collapse show" id="collapse_aside2">
+        <div class="card-body">
+        <!-- <input type="range" formControlName="maxPrice" class="form-range" min="0" max="100"> -->
+        <div class="row mb-3">
+          <div class="col-6">
+          <label for="min" class="form-label">Min</label>
+          <input class="form-control" formControlName="minPrice" id="min" placeholder="$0" type="number">
+          </div> <!-- col end.// -->
+    
+          <div class="col-6">
+          <label for="max" class="form-label">Max</label>
+          <input class="form-control" formControlName="maxPrice" id="max" placeholder="$1,0000" type="number">
+          </div> <!-- col end.// -->
+        </div> <!-- row end.// -->
+        <button class="btn btn-light w-100" type="button">Apply</button>
+        </div> <!-- card-body.// -->
+      </div> <!-- collapse.// -->
+      </article> <!-- filter-group // -->
+      <article class="filter-group">
+        <header class="card-header">
+          <a mat-flat-button color="primary" (click)="filter()"  >
+            Filter 
+          </a>
+        </header>
+        </article> <!-- filter-group // -->
+    
+    </form>   
+    </div> <!-- card.// -->
+    <!-- ===== Card for sidebar filter .// ===== -->
+    
+      </aside> <!-- col .// -->
+      <main class="col-lg-9">
+        
+      <header>
+        <form [formGroup]="formsearch" (ngSubmit)="search()" >
+            <div class="input-group">
+              <input formControlName="Name"  type="search" class="form-control" style="width:55%" placeholder="Search">   
+              <button class="btn btn-primary">
+                <i class="fa fa-search"></i> 
+              </button>
+            </div> <!-- input-group end.// -->
+          </form>
+          <br>
+      </header>
+    
+      <!-- ========= content items ========= -->
+      <div class="row">
+       
+        <div *ngFor="let item of products" class="col-lg-4 col-md-6 col-sm-6">
+          
+          <figure class="card card-product-grid">
+            <a [routerLink]="[item.id]">
+          <div class="img-wrap"> 
+            <img src="{{item.image}}"> 
+          </div>
+          </a>
+          <figcaption class="info-wrap border-top">
+            <div class="price-wrap">
+            <strong class="price">${{item.price}}</strong>
+            </div> <!-- price-wrap.// -->
+            <p class="title mb-2">{{item.name}}</p>
+            <form [formGroup]="form" (ngSubmit)="AddToCart(item.id)">
+            <div class="input-group input-spinner">
+              
+             
+              <input  type="number" min="1"  class="form-control text-center"  formControlName="quantity">
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Add to cart</button>
+          </form>
+            
+          </figcaption>
+          </figure>
+        
+        </div><!-- col end.// -->
+     
+      </div> <!-- row end.// -->
+    
+      <hr>
+ 
+                
+                  </main>
+                  </div> 
+                  </div> 
+                  </section>

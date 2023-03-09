@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TestoComponent } from './testo/testo.component';
 
 const routes: Routes = [
   {
@@ -7,6 +8,9 @@ const routes: Routes = [
   },
   {
     path:'public',loadChildren:()=>import("./Public/public.module").then(x=>x.PublicModule)
+  },
+  {
+    path:'',component:TestoComponent
   },
  
 

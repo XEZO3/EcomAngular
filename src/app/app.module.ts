@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { TestoComponent } from './testo/testo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestoComponent
   ],
   imports: [
     BrowserModule,
