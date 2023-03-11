@@ -5,7 +5,7 @@ export class CategoryDto{
     DescriptionAr:string
     DescriptionEn:string
     Image:string
-    isAvailable:boolean
+    isAvailable:string
 
     constructor(){
       
@@ -14,6 +14,6 @@ export class CategoryDto{
         this.NameEn=''
         this.DescriptionEn=''
         this.Image=''
-        this.isAvailable=true
+        this.isAvailable=''
     }
 }

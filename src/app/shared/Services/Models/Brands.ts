@@ -4,7 +4,7 @@ export class BrandModel{
     NameEn:string  
     name:string
     Image:string
-    isAvailable:boolean
+    IsAvailable:string
 
     constructor(){  
         this.Id=0;
@@ -12,6 +12,6 @@ export class BrandModel{
         this.NameEn=''
         this.name=''
         this.Image=''
-        this.isAvailable=true
+        this.IsAvailable=''
     }
 }

@@ -11,7 +11,7 @@ import { categoryModel } from 'src/app/shared/Services/Models/Category';
   styleUrls: ['./show-category.component.css']
 })
 export class ShowCategoryComponent implements OnInit {
-  displayedColumns: string[] = ["No.",'Name','IsAvilable','action' ];
+  displayedColumns: string[] = ["No.",'Image','Name','IsAvilable','action' ];
   counter:number=0
   categoryFilter:categoryFilter =  new categoryFilter
   dataSource: MatTableDataSource<categoryModel> =  new MatTableDataSource<categoryModel>();

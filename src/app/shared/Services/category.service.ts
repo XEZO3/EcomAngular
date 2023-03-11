@@ -22,7 +22,7 @@ formdata.append("nameAr",category.NameAr)
 formdata.append("nameEn",category.NameEn)
 formdata.append("descriptionAr",category.DescriptionAr)
 formdata.append("descriptionEn",category.DescriptionEn)
-formdata.append("Image","s")
+formdata.append("Image","empty")
 formdata.append("isAvailable",String(category.isAvailable))
 return this.http.post<any>(url,formdata)
 }
@@ -30,17 +30,22 @@ GetById(id:number){
   let url = this.baseUrl+"GetById/"+id
   return this.http.get<any>(url)
 }
-Update(category:categoryModel){
+Update(category:categoryModel,file:any){
   let url = this.baseUrl+"Update/"
-  return this.http.put<any>(url,{
-    id:category.Id,
-    nameAr: category.NameAr,
-    nameEn: category.NameEn,
-    descriptionAr: category.DescriptionAr,
-    descriptionEn: category.DescriptionEn,
-    image: category.Image,
-    isAvailable: category.isAvailable
-  })
+  var formdata = new FormData()
+  formdata.append("Id",String(category.Id))
+  formdata.append("NameAr",category.NameAr)
+  formdata.append("NameEn",category.NameEn)
+  formdata.append("DescriptionAr",category.DescriptionAr)
+  formdata.append("DescriptionEn",category.DescriptionEn)
+  if(file !=null){
+    formdata.append("file",file)
+    formdata.append("Image","empty")
+    }else{
+      formdata.append("Image",category.Image)
+    }
+    formdata.append("IsAvailable",category.isAvailable)
+  return this.http.put<any>(url,formdata)
 }
 Delete(id:number){
   let url = this.baseUrl+"Delete/"+id

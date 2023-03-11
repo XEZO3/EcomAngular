@@ -18,21 +18,28 @@ export class ProductsService {
     let url = this.baseUrl+"GetById/"+id
     return this.http.get<any>(url)
   }
-  Update(product:ProductsModel){
+  Update(product:ProductsModel,file:any){
     let url = this.baseUrl+"Update/"
-    return this.http.put<any>(url,{
-      id:product.Id,
-      nameAr: product.NameAr,
-      nameEn: product.NameEn,
-      descriptionAr: product.DescriptionAr,
-      descriptionEn: product.DescriptionEn,
-      tax:product.Tax,
-      price:product.Price,
-      CategoryId:product.CategoryId,
-      BrandsId:product.BrandsId,
-      image: product.Image,
-      Avilability: product.Avilability
-    })
+    let formdata = new FormData
+   
+  formdata.append('NameAr',product.NameAr)
+  formdata.append('NameEn',product.NameEn)
+  formdata.append('descriptionAr',product.DescriptionAr)
+  formdata.append('descriptionEn',product.DescriptionEn)
+  formdata.append('tax',String(product.Tax))
+  formdata.append('Price',String(product.Price))
+  formdata.append('CategoryId',String(product.CategoryId))
+  formdata.append('BrandsId',String(product.BrandsId))
+  if(file !=null){
+    formdata.append("file",file)
+    formdata.append("Image","empty")
+    }else{
+      formdata.append("Image",product.Image)
+    }
+  
+  formdata.append('Avilability',String(product.Avilability)) 
+  
+    return this.http.put<any>(url,formdata)
   }
   Add(product:ProductDto,file:any){
     let url = this.baseUrl+"Add/"
@@ -44,10 +51,10 @@ export class ProductsService {
   formdata.append('descriptionEn',product.DescriptionEn)
   formdata.append('tax',String(product.Tax))
   formdata.append('Price',String(product.Price))
-  formdata.append('CategoryId',"1")
-  formdata.append('BrandsId',"1")
-  formdata.append('image',"1")
-  formdata.append('Avilability',"1")
+  formdata.append('CategoryId',String(product.CategoryId))
+  formdata.append('BrandsId',String(product.BrandsId))
+  formdata.append('image',"empty")
+  formdata.append('Avilability',String(product.Avilability))
     return this.http.post<any>(url,formdata)
   }
   GetCartItem(local:any){

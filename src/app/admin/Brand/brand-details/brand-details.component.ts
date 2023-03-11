@@ -11,11 +11,12 @@ import { BrandModel } from 'src/app/shared/Services/Models/Brands';
 })
 export class BrandDetailsComponent {
   BrandId:any
+  file:any
   form=this.fb.group({
     NameAr:'',
     NameEn:'',
     Image:'',
-    IsAvilable:true
+    IsAvilable:''
   })
   Brand:BrandModel= new BrandModel
   constructor(private fb:FormBuilder,private brand:BrandsService,private _Activatedroute:ActivatedRoute){}
@@ -23,18 +24,22 @@ export class BrandDetailsComponent {
     this.BrandId=this._Activatedroute.snapshot.paramMap.get("id");
     this.GetById()
   }
+  selecter(e:any){
+    this.file =e.target.files[0]
+  }
   GetById(){
     this.brand.GetById(this.BrandId).subscribe(respone=>{
       this.Brand.Id = respone.result.id
       this.Brand.NameAr = respone.result.nameAr
       this.Brand.NameEn = respone.result.nameEn
       this.Brand.Image = respone.result.image
-      this.Brand.isAvailable = respone.result.isAvilable
+      this.Brand.IsAvailable = String(respone.result.isAvailable)
+      console.log(respone.result)
       this.form.patchValue({
         NameAr:this.Brand.NameAr,
         NameEn:this.Brand.NameEn,
         Image:this.Brand.Image,
-        IsAvilable:this.Brand.isAvailable
+        IsAvilable:this.Brand.IsAvailable
       })
     })
   }
@@ -43,13 +48,13 @@ export class BrandDetailsComponent {
   this.Brand.NameEn = this.form.value.NameEn as string
  
   this.Brand.Image = this.form.value.Image as string
-  this.Brand.isAvailable = this.form.value.IsAvilable as boolean
-  this. brand.Update(this.Brand).subscribe(respone=>{
+  this.Brand.IsAvailable = this.form.value.IsAvilable as string
+  this. brand.Update(this.Brand,this.file).subscribe(respone=>{
     this.form.patchValue({
       NameAr:respone.result.nameAr,
       NameEn:respone.result.nameEn,
       Image:respone.result.image,
-      IsAvilable:respone.result.isAvilable
+      IsAvilable:String(respone.result.isAvailable)
   
     })
     

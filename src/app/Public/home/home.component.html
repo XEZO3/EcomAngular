@@ -5,6 +5,7 @@
       <header class="text-center mt-5">
         <h2 class="text-white">Order online now</h2>
         <p class="text-white">Discover the best Products in your area</p>
+        <a [routerLink]="['/public/Products']" class="btn btn-primary">Shop Now</a>
       </header>
       </div>
       <!-- =================== COMPONENT 1 .// ================== -->
@@ -15,7 +16,7 @@
       <div class="content-body">
         <nav class="row gy-4">
         <div *ngFor="let item of category" class="col-xl col-lg-2 col-md-3 col-4">
-          <a href="#" class="item-link text-center">
+          <a [routerLink]="['/public/Products']" class="item-link text-center">
           <span class="icon icon-lg mb-2 rounded-3">
             <img width="42" height="42" src="{{item.image}}">
           </span>

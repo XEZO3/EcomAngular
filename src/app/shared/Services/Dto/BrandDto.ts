@@ -2,13 +2,13 @@ export class brandDto{
     NameAr:string
     NameEn:string
     Image:string
-    IsAvailable:boolean
+    IsAvailable:string
 
     constructor(){
       
         this.NameAr=''
         this.NameEn=''
         this.Image=''
-        this.IsAvailable=true
+        this.IsAvailable=''
     }
 }

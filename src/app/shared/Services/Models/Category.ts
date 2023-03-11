@@ -7,7 +7,7 @@ export class categoryModel{
     name:string
     Description:string
     Image:string
-    isAvailable:boolean
+    isAvailable:string
 
     constructor(){
         
@@ -19,6 +19,6 @@ export class categoryModel{
         this.name=''
         this.Description=''
         this.Image=''
-        this.isAvailable=true
+        this.isAvailable=''
     }
 }

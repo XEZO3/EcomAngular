@@ -16,7 +16,7 @@ form=this.fb.group({
   DescriptionAr:'',
   DescriptionEn:'',
   Image:'',
-  isAvailable:true
+  isAvailable:''
 })
 Category:CategoryDto= new CategoryDto
 constructor(private fb:FormBuilder,private category:CategoryService){}
@@ -31,7 +31,7 @@ this.Category.NameEn = this.form.value.NameEn as string
 this.Category.DescriptionAr = this.form.value.DescriptionAr as string
 this.Category.DescriptionEn = this.form.value.DescriptionEn as string
 this.Category.Image = this.form.value.Image as string
-this.Category.isAvailable = this.form.value.isAvailable as boolean
+this.Category.isAvailable = this.form.value.isAvailable as string
 this.category.Add(this.Category,this.file).subscribe(respone=>{
   this.form.patchValue({
     NameAr:'',
@@ -39,7 +39,7 @@ this.category.Add(this.Category,this.file).subscribe(respone=>{
     DescriptionAr:'',
     DescriptionEn:'',
     Image:'',
-    isAvailable:true
+    isAvailable:''
 
   })
   

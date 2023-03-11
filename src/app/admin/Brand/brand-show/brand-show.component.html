@@ -1,6 +1,6 @@
 <div class="container">
-    <!-- <div class="row">
-      <form [formGroup]="filterForm" (ngSubmit)="filter()">
+    <div class="row">
+      <form [formGroup]="filterform" (ngSubmit)="filter()">
         <mat-form-field style="margin-left: 10px;margin-right: 10px;">
             <mat-label>Name</mat-label>
             <input matInput name="name" formControlName="Name" >
@@ -14,7 +14,7 @@
 
         <button mat-raised-button type="submit" style="margin-left: 10px;" mat-raised-button color="primary">search</button>       
       </form>
-    </div> -->
+    </div>
     <a [routerLink]="['../add']" mat-flat-button color="primary">Add Brands</a>
     <br>
     <br>
@@ -31,7 +31,10 @@
           <th mat-header-cell *matHeaderCellDef>No.  </th>
           <td mat-cell *matCellDef="let element;let i = index" > {{i+1}} </td>
         </ng-container>
-    
+        <ng-container matColumnDef="Image">
+          <th mat-header-cell *matHeaderCellDef>Image  </th>
+          <td mat-cell *matCellDef="let element"> <img src="{{element.image}}" style="width: 50px;height: 50px;"> </td>
+        </ng-container>
         <ng-container matColumnDef="Name">
           <th mat-header-cell *matHeaderCellDef>Name  </th>
           <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -42,7 +45,7 @@
           </ng-container>
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>Action</th>
-            <td mat-cell *matCellDef="let element" ><a ><mat-icon>delete</mat-icon></a> <a style="color:black" [routerLink]="['../details/',element.id]"><mat-icon>edit</mat-icon></a></td>
+            <td mat-cell *matCellDef="let element" ><a (click)="DeleteBrand(element.id)" ><mat-icon>delete</mat-icon></a> <a style="color:black" [routerLink]="['../details/',element.id]"><mat-icon>edit</mat-icon></a></td>
           </ng-container>
            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

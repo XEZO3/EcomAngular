@@ -35,6 +35,7 @@ import { ProductAddComponent } from './Products/product-add/product-add.componen
 import {MatSelectModule} from '@angular/material/select';
 
 
+
 @NgModule({
   declarations: [
     ShowUsersComponent,
@@ -72,7 +73,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatSidenavModule,
     MatDividerModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+
+    
     // BrowserModule,
     // AppRoutingModule,
   ]

@@ -16,6 +16,7 @@ import { ProductsService } from 'src/app/shared/Services/products.service';
 export class ProductDetailsComponent {
   Product_Id:any
   Category:any
+  file:any
   Brands:any
   currentBrand:string=''
   currentCategory:string=''
@@ -39,6 +40,9 @@ export class ProductDetailsComponent {
     this.GetCategory()
     this.GetBrands()
 
+  }
+  selecter(e:any){
+    this.file =e.target.files[0]
   }
   GetById(){
     this.product.GetById(this.Product_Id).subscribe(respone=>{
@@ -81,14 +85,14 @@ export class ProductDetailsComponent {
   this.Product.BrandsId = this.form.value.BrandsId as number
   this.Product.Image = this.form.value.Image as string
   this.Product.Avilability = this.form.value.Avilability as string
-  this.product.Update(this.Product).subscribe(respone=>{
+  this.product.Update(this.Product,this.file).subscribe(respone=>{
     this.form.patchValue({
       NameAr:respone.result.nameAr,
       NameEn:respone.result.nameEn,
       Tax : respone.result.tax,
       Price : respone.result.price,
       CategoryId : respone.result.categoryId,
-     BrandsId : respone.result.brandsId,
+      BrandsId : respone.result.brandsId,
       DescriptionAr:respone.result.descriptionAr,
       DescriptionEn:respone.result.descriptionEn,
       Image:respone.result.image,

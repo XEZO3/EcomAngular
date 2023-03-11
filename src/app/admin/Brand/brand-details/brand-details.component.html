@@ -13,18 +13,16 @@
         <input matInput  formControlName="NameEn" >
     </mat-form-field>
     
+    <img src="{{Brand.Image}}" style="width: 80px;height: 80px;">
     
-    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
-        <mat-label>Image</mat-label>
-        <input matInput  formControlName="Image" >
-    </mat-form-field>
+    <input  type="File" (change)="selecter($event)" >
     <mat-radio-group formControlName="IsAvilable" aria-label="Select an option">
         <mat-label>IsAvilable:</mat-label>
         <mat-radio-button value="true">Yes</mat-radio-button>
         <mat-radio-button value="false">No</mat-radio-button>
       </mat-radio-group>
     
- 
+     
 
     <button mat-raised-button type="submit" mat-raised-button color="primary">Add</button>       
   </form>
