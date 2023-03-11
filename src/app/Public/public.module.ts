@@ -12,6 +12,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { BasketComponent } from './basket/basket.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { RegisterComponent } from './Auth/register/register.component';
+import { OrdersComponent } from './orders/orders.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import { WishComponent } from './wish/wish.component';
 
 
 
@@ -23,7 +29,11 @@ import { BasketComponent } from './basket/basket.component';
     IndexComponent,
     ProductsComponent,
     ProductInfoComponent,
-    BasketComponent
+    BasketComponent,
+    LoginComponent,
+    RegisterComponent,
+    OrdersComponent,
+    WishComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +43,8 @@ import { BasketComponent } from './basket/basket.component';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatIconModule
   ]
 })
 export class PublicModule { }

@@ -4,6 +4,7 @@ import { userModel } from './Models/user';
 import { userFilter } from './filters/userFilter';
 import { registerDto } from './Dto/registerDto';
 import { updateUserDto } from './Dto/UpdateUserDto';
+import { LoginDto } from './Dto/LoginDto';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,5 +43,12 @@ export class UserServiceService {
     let url = this.baseUrl +"Delete/"+Id
     return this.http.delete(url)
     
+  }
+  Login(Login:LoginDto){
+    let url = this.baseUrl +"Login/"
+    return this.http.post<any>(url,{
+      Email:Login.Email,
+      Password:Login.Password
+    })
   }
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BrandsService } from 'src/app/shared/Services/brands.service';
 import { CategoryService } from 'src/app/shared/Services/category.service';
 
@@ -8,27 +9,24 @@ import { CategoryService } from 'src/app/shared/Services/category.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  brand:any
-  category:any
-  form = this.fb.group({
-    Name:'',
-    CategoryId:0
-  })
-constructor(private fb:FormBuilder,private Category:CategoryService,private Brand:BrandsService){}
+export class HeaderComponent implements OnInit{
+isLogin=true
+
+constructor(private fb:FormBuilder,private Category:CategoryService,private Brand:BrandsService,private route:Router){}
   ngOnInit(): void {
-    this.GetBrand()
-    this.GetCategory()
+   if(localStorage.getItem("Token")!=null){
+    this.isLogin=true
+   }else{
+    this.isLogin=false
+   }
   }
-  GetCategory(){
- this.Category.GetAll().subscribe(respone=>{
-  this.category = respone.result
- })
+  
+  logOut(){
+    localStorage.removeItem("Token")
+    this.isLogin=false
+    this.route.navigate(['/public/Login'])
+   
   }
-  GetBrand(){
-    this.Brand.GetAll().subscribe(respone=>{
-      this.brand = respone.result
-     })
-  }
+  
   
 }

@@ -40,6 +40,7 @@ file:any
     this.GetBrands()
 
   }
+  
   selecter(e:any){
 
     this.file =e.target.files[0]

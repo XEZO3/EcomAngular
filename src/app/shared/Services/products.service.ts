@@ -38,23 +38,26 @@ export class ProductsService {
     let url = this.baseUrl+"Add/"
     let formdata = new FormData
     formdata.append('file',file)
-  formdata.append('NameAr',"hello")
-  formdata.append('NameEn',"hello")
-  formdata.append('descriptionAr',"hello")
-  formdata.append('descriptionEn',"hello")
-  formdata.append('tax','10')
-  formdata.append('Price','10')
+  formdata.append('NameAr',product.NameAr)
+  formdata.append('NameEn',product.NameEn)
+  formdata.append('descriptionAr',product.DescriptionAr)
+  formdata.append('descriptionEn',product.DescriptionEn)
+  formdata.append('tax',String(product.Tax))
+  formdata.append('Price',String(product.Price))
   formdata.append('CategoryId',"1")
   formdata.append('BrandsId',"1")
   formdata.append('image',"1")
   formdata.append('Avilability',"1")
     return this.http.post<any>(url,formdata)
   }
-  Addt(){
-    let url = this.baseUrl+"testo/"
-    return this.http.post<any>(url,{   
-    },{
-      
-    })
+  GetCartItem(local:any){
+    let url = this.baseUrl+"GetCartItem/"
+    
+    var formdata= new FormData()
+    formdata.append('cart',String(local))
+   
+    return this.http.post<any>(url,
+     formdata
+    )
   }
 }

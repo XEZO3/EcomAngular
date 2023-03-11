@@ -17,7 +17,6 @@ export class ProductsComponent implements OnInit {
   productscpy:any
   brands:any
   category:any
-  
   Cart: cart =  new cart
   CartList: cart[] =  []
   ProductFilter:ProductFilter =  new ProductFilter
@@ -111,6 +110,8 @@ constructor(private fb:FormBuilder,private Brand:BrandsService,private Products:
    
     this.CartList.push(this.Cart)
     localStorage.setItem("cart",JSON.stringify(this.CartList))
+    this.CartList=[]
+  this.Cart= new cart
   }else{
     this.CartList = JSON.parse(localStorage.getItem("cart") || "[]");
     var temp =this.CartList.findIndex((item)=>{return item.Id==this.Cart.Id})
@@ -123,5 +124,33 @@ constructor(private fb:FormBuilder,private Brand:BrandsService,private Products:
       }
     
   }
+  this.CartList=[]
+  this.Cart= new cart
+  }
+  AddToWish(id:number){
+    this.CartList=[]
+  this.Cart= new cart
+    this.Cart.Id = id  as number
+    this.Cart.Quantity = this.form.value.quantity as number
+   
+  if(localStorage.getItem("wish")==null){
+   
+    this.CartList.push(this.Cart)
+    localStorage.setItem("wish",JSON.stringify(this.CartList))
+    this.CartList=[]
+  this.Cart= new cart
+  }else{
+    this.CartList = JSON.parse(localStorage.getItem("wish") || "[]");
+    var temp =this.CartList.findIndex((item)=>{return item.Id==this.Cart.Id})
+    if(this.CartList[temp]!=null){
+      this.CartList[temp].Quantity=this.CartList[temp].Quantity+1
+      localStorage.setItem("wish",JSON.stringify(this.CartList))
+      }else{
+        this.CartList.push(this.Cart)
+        localStorage.setItem("wish",JSON.stringify(this.CartList))
+      }
+    
+  }
+  
   }
 }

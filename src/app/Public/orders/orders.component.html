@@ -1,0 +1,46 @@
+<div class="container my-5 py-5">
+    <div class="row my-5 py-5">
+        <div class="card">
+            <div class="row my-2">
+                <div class="col">id</div>
+                <div class="col">Date</div>
+                <div class="col">Total</div>
+                <div class="col">State</div>
+                <div class="col">Action</div>
+            </div>
+            <hr>
+            <div *ngFor="let item of order" class="row my-2">
+              
+                <div class="col">{{item.id}}</div>
+                <div class="col">{{item.orderDate}}</div>
+                <div class="col">{{item.total}}</div>
+                <div class="col">{{item.orderState}}</div>
+                <div class="col"><a class="btn" *ngIf="item.orderState !='Delivered'" (click)="Delivered(item.id)" >Delivered?</a> <a class="btn" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#expa'+item.id" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><mat-icon>more</mat-icon></a></div>
+                
+                <div class="collapse" id="expa{{item.id}}">
+                    <table class="table">
+                        <thead>
+                            <td>No.</td>
+                            <td>Name</td>
+                            <td>Image</td>
+                            <td>Quantity</td>
+                            <td>Price each</td>
+                            <td>total Price</td>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let subitem of item.items">
+                                <td>{{subitem.id}}</td>
+                                <td>{{subitem.products.name}}</td>
+                                <td>{{subitem.products.image}}</td>
+                                <td>{{subitem.quantity}}</td>
+                                <td>{{subitem.products.price}}</td>
+                                <td>{{subitem.products.price*subitem.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -14,18 +14,17 @@ export class CategoryService {
 var url = this.baseUrl+"GetAll?Name="+filter?.Name+"&IsAvailable="+filter?.IsAvilable+"&Description="+filter?.Description
 return this.http.get<any>(url);
   }
-Add(category:CategoryDto){
+Add(category:CategoryDto,file:any){
 let url = this.baseUrl+"Add"
-return this.http.post<any>(url,{
-  
-    nameAr: category.NameAr,
-    nameEn:category.NameEn,
-    descriptionAr: category.DescriptionAr,
-    descriptionEn: category.DescriptionEn,
-    image: category.Image,
-    isAvailable: category.isAvailable
-  
-})
+var formdata = new FormData()
+formdata.append('file',file)
+formdata.append("nameAr",category.NameAr)
+formdata.append("nameEn",category.NameEn)
+formdata.append("descriptionAr",category.DescriptionAr)
+formdata.append("descriptionEn",category.DescriptionEn)
+formdata.append("Image","s")
+formdata.append("isAvailable",String(category.isAvailable))
+return this.http.post<any>(url,formdata)
 }
 GetById(id:number){
   let url = this.baseUrl+"GetById/"+id

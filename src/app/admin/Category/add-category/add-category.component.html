@@ -20,10 +20,10 @@
         <mat-label>DescriptionEn</mat-label>
         <input matInput  formControlName="DescriptionEn" >
     </mat-form-field>
-    <mat-form-field style="margin-left: 10px;margin-right: 10px;">
-        <mat-label>Image</mat-label>
-        <input matInput  formControlName="Image" >
-    </mat-form-field>
+    
+        
+        <input  type="File" (change)="selecter($event)" >
+    
     <mat-radio-group formControlName="IsAvilable" aria-label="Select an option">
         <mat-label>IsAvilable:</mat-label>
         <mat-radio-button value="true">Yes</mat-radio-button>

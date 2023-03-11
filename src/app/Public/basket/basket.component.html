@@ -10,101 +10,58 @@
         <div class="card">
         <div class="content-body">
           <h4 class="card-title mb-4">Your shopping cart</h4>
-          <article class="row gy-3 mb-4">
+          <article *ngFor="let item of product" class="row gy-3 mb-4">
             <div class="col-lg-5">
               <figure class="itemside me-lg-5">
                 <div class="aside"><img src="assets/images/items/11.webp" class="img-sm img-thumbnail"></div>
                 <figcaption class="info">
-                  <a href="#" class="title">Winter jacket for men and lady</a>
-                  <p class="text-muted"> Yellow, Jeans </p>
+                  <a href="#" class="title">{{item.name}}   #{{GetItemQuentity(item.id)}}</a>
+                  <p class="text-muted"> {{item.category.name}}, {{item.brands.name}} </p>
                 </figcaption>
               </figure>
             </div>
-            <div class="col-auto">
-              <select style="width: 100px" class="form-select">
-                <option>1</option>
-                <option>2</option>  
-                <option>3</option>  
-                <option>4</option>  
-              </select> 
-            </div>
+           
             <div class="col-lg-2 col-sm-4 col-6">
               <div class="price-wrap lh-sm"> 
-                <var class="price h6">$1156.00</var>  <br>
-                <small class="text-muted"> $460.00 / per item </small> 
+                <var class="price h6">{{item.price*GetItemQuentity(item.id)}}</var>  <br>
+                {{counter(item.price*GetItemQuentity(item.id))}}
+                <small class="text-muted"> ${{item.price}} / per item </small> 
+                
               </div> <!-- price-wrap .// -->
             </div>
+            
             <div class="col-lg col-sm-4">
               <div class="float-lg-end">
-                <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a> 
-                <a href="#" class="btn btn-light text-danger"> Remove</a>
+                
+                <a  class="btn btn-light text-danger" (click)="RemoveFromCart(item.id)" > Remove</a>
               </div>
             </div>
           </article> <!-- row.// -->
     
-          <article class="row gy-3 mb-4">
-            <div class="col-lg-5">
-              <figure class="itemside me-lg-5">
-                <div class="aside"><img src="assets/images/items/12.webp" class="img-sm img-thumbnail"></div>
-                <figcaption class="info">
-                  <a href="#" class="title">Mens T-shirt Cotton Base</a>
-                  <p class="text-muted"> Blue, Medium </p>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="col-auto">
-              <select style="width: 100px" class="form-select">
-                <option>1</option>
-                <option>2</option>  
-                <option>3</option>  
-                <option selected>4</option>  
-              </select> 
-            </div>
-            <div class="col-lg-2 col-sm-4 col-6">
-              <div class="price-wrap lh-sm"> 
-                <var class="price h6">$44.80</var>  <br>
-                <small class="text-muted"> $12.20 / per item </small> 
-              </div> <!-- price-wrap .// -->
-            </div>
-            <div class="col-lg col-sm-4">
-              <div class="float-lg-end">
-                <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a> 
-                <a href="#" class="btn btn-light text-danger"> Remove</a>
-              </div>
-            </div>
-          </article> <!-- row.// -->
+          
     
-          <article class="row gy-3 mb-4">
-            <div class="col-lg-5">
-              <figure class="itemside me-lg-5">
-                <div class="aside"><img src="assets/images/items/10.webp" class="img-sm img-thumbnail"></div>
-                <figcaption class="info">
-                  <a href="#" class="title">Blazer Suit Dress Jacket for Men</a>
-                  <p class="text-muted"> XL size, Jeans, Blue </p>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="col-auto">
-              <select style="width: 100px" class="form-select">
-                <option>1</option>
-                <option>2</option>  
-                <option selected>3</option>  
-                <option>4</option>  
-              </select> 
-            </div>
-            <div class="col-lg-2 col-sm-4 col-6">
-              <div class="price-wrap lh-sm"> 
-                <var class="price h6">$1156.00</var>  <br>
-                <small class="text-muted"> $460.00 / per item </small> 
-              </div> <!-- price-wrap .// -->
-            </div>
-            <div class="col-lg col-sm-4">
-              <div class="float-lg-end">
-                <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a> 
-                <a href="#" class="btn btn-light text-danger"> Remove</a>
-              </div>
-            </div>
-          </article> <!-- row.// -->
+         <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="form" (ngSubmit)="checkOut()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+        <input type="text" placeholder="Note" class="form-control" formControlName="Note">
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary">Place order</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div> 
     
         </div> <!-- card-body .// -->
     
@@ -125,22 +82,20 @@
         <div class="card-body">
           <dl class="dlist-align">
             <dt>Total price:</dt>
-            <dd class="text-end"> $329.00</dd>
+            <dd class="text-end"> ${{total}}</dd>
           </dl>
          
-          <dl class="dlist-align">
-            <dt>TAX:</dt>
-            <dd class="text-end"> $14.00 </dd>
-          </dl>
+          
           <hr>
           <dl class="dlist-align">
             <dt>Total:</dt>
-            <dd class="text-end text-dark h5"> $357.90 </dd>
+            <dd class="text-end"> ${{total}}</dd>
           </dl>
           
           <div class="d-grid gap-2 my-3">
-            <a href="#" class="btn btn-success w-100"> Make Purchase </a>
-            <a href="#" class="btn btn-light w-100"> Back to shop </a>
+            <!-- <a (click)="checkOut()" class="btn btn-success w-100" > Make Purchase </a> -->
+            <a *ngIf="!isEmpty"  class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Make Purchase </a>
+            <a [routerLink]="['/public/Products']" class="btn btn-light w-100"> Back to shop </a>
           </div>
         </div> <!-- card-body.// -->
         </div> <!-- card.// -->

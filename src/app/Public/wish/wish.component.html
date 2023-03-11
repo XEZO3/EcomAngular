@@ -1,0 +1,59 @@
+
+    
+    <section class="padding-y bg-light">
+        <div class="container">
+        
+        <div class="row">
+          <div class="col-lg-9">
+        
+            <div class="card">
+            <div class="content-body">
+              <h4 class="card-title mb-4">Your WishList</h4>
+              <article *ngFor="let item of product" class="row gy-3 mb-4">
+                <div class="col-lg-5">
+                  <figure class="itemside me-lg-5">
+                    <div class="aside"><img src="assets/images/items/11.webp" class="img-sm img-thumbnail"></div>
+                    <figcaption class="info">
+                      <a href="#" class="title">{{item.name}}   #{{GetItemQuentity(item.id)}}</a>
+                      <p class="text-muted"> {{item.category.name}}, {{item.brands.name}} </p>
+                    </figcaption>
+                  </figure>
+                </div>
+               
+                <div class="col-lg-2 col-sm-4 col-6">
+                  <div class="price-wrap lh-sm"> 
+                    <var class="price h6">{{item.price*GetItemQuentity(item.id)}}</var>  <br>
+                   
+                    <small class="text-muted"> ${{item.price}} / per item </small> 
+                    
+                  </div> <!-- price-wrap .// -->
+                </div>
+                
+                <div class="col-lg col-sm-4">
+                  <div class="float-lg-end">
+                    
+                    <a  class="btn btn-light text-danger" (click)="RemoveFromWish(item.id)" > Remove</a>
+                    <a  class="btn btn-light text-primary" (click)="MoveToCart(item.id)" > Move to cart</a>
+                  </div>
+                </div>
+              </article> <!-- row.// -->
+            </div> <!-- card-body .// -->
+        
+            
+        
+            </div> <!-- card.// -->
+        
+          </div> <!-- col.// -->
+          
+        
+        </div> <!-- row.// -->
+       
+        
+        <br><br>
+        
+        </div> <!-- container .//  -->
+        </section>
+        
+        
+        
+        

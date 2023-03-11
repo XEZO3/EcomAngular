@@ -10,8 +10,8 @@
     <aside class="col-lg-6">
       <article class="gallery-wrap"> 
       <div class="img-big-wrap img-thumbnail">
-         <a data-fslightbox="mygalley" data-type="image" href="assets/images/items/10.webp"> 
-          <img height="560" src="assets/images/items/10.webp"> 
+         <a data-fslightbox="mygalley" data-type="image" href="{{product.image}}"> 
+          <img height="560" src="{{product.image}}"> 
          </a>
       </div> <!-- img-big-wrap.// -->
       
@@ -23,7 +23,7 @@
       <div class="rating-wrap my-3">
         <ul class="rating-stars">
         <li style="width:80%" class="stars-active"> <img src="assets/images/misc/stars-active.svg" alt=""> </li>
-        <li> <img src="assets/images/misc/starts-disable.svg" alt=""> </li>
+        <li> <img src="{{product.image}}" alt=""> </li>
         </ul>
        
         <i class="dot"></i>
