@@ -1,20 +1,34 @@
 <div class="container">
-    <!-- <div class="row">
-      <form [formGroup]="filterForm" (ngSubmit)="filter()">
+    <div class="row">
+      <form [formGroup]="filterform" (ngSubmit)="filter()">
         <mat-form-field style="margin-left: 10px;margin-right: 10px;">
             <mat-label>Name</mat-label>
             <input matInput name="name" formControlName="Name" >
         </mat-form-field>
-               
-        <mat-radio-group formControlName="IsAvilable" aria-label="Select an option">
-            <mat-label>IsAvilable:</mat-label>
-            <mat-radio-button value="true">Yes</mat-radio-button>
-            <mat-radio-button value="false">No</mat-radio-button>
+        <mat-form-field appearance="fill" class="ms-3" >
+        
+          <mat-label>Brand</mat-label>
+          <select formControlName="BrandsId"  matNativeControl >
+            <option *ngFor="let item of Brands" [value]="item.id">{{item.name}}</option>
+            
+          </select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="ms-3">
+          <mat-label>Category</mat-label>
+          <select formControlName="CategoryId" matNativeControl >
+              <option *ngFor="let item of Category" [value]="item.id">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+        <mat-radio-group class="ms-3" formControlName="Avilability" aria-label="Select an option">
+            <mat-label>Avilability:</mat-label>
+            <mat-radio-button value="in stock">in stock</mat-radio-button>
+            <mat-radio-button value="out of stock">out of stock</mat-radio-button>
           </mat-radio-group>
 
         <button mat-raised-button type="submit" style="margin-left: 10px;" mat-raised-button color="primary">search</button>       
       </form>
-    </div> -->
+    </div>
     <a [routerLink]="['../add']" mat-flat-button color="primary">Add Product</a>
     <br>
     <br>

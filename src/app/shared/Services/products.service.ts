@@ -11,7 +11,7 @@ export class ProductsService {
   baseUrl = "https://localhost:7247/api/Product/"
   constructor(private http:HttpClient) { }
   GetAll(filter:ProductFilter =new ProductFilter){
-   var url = this.baseUrl+"GetAll?Name="+filter?.name+"&Description="+filter?.Description+"&Avilability="+filter?.Avilability
+   var url = this.baseUrl+"GetAll?Name="+filter?.name+"&Avilability="+filter?.Avilability+"&Category="+filter?.CategoryId+"&Brand="+filter.BrandsId
    return this.http.get<any>(url);
   }
   GetById(id:number){
